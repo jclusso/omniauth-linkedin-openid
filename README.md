@@ -1,6 +1,6 @@
 # OmniAuth LinkedIn
 
-![Ruby](https://github.com/omniauth/omniauth-github/workflows/Ruby/badge.svg?branch=master)
+![Ruby](https://github.com/jclusso/omniauth-linkedin-openid/workflows/Ruby/badge.svg?branch=master)
 [![Gem](https://img.shields.io/gem/v/omniauth-linkedin-openid)](https://rubygems.org/gems/omniauth-linkedin-openid)
 
 This is the a OmniAuth strategy for authenticating to LinkedIn using OpenID. To
