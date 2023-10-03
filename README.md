@@ -21,7 +21,9 @@ gem 'omniauth-linkedin-openid'
 
 ```ruby
 use OmniAuth::Builder do
-  provider :linkedin, ENV['LINKEDIN_CLIENT_ID'], ENV['LINKEDIN_CLIENT_SECRET']
+  provider :linkedin,
+    client_id: ENV['LINKEDIN_CLIENT_ID'],
+    client_secret: ENV['LINKEDIN_CLIENT_SECRET']
 end
 ```
 
@@ -36,7 +38,9 @@ The following scopes are requested by default:
 Here is an example of how you can configure the `scope` option:
 
 ```ruby
-provider :linkedin, ENV['LINKEDIN_CLIENT_ID'], ENV['LINKEDIN_CLIENT_SECRET'],
+provider :linkedin,
+  client_id: ENV['LINKEDIN_CLIENT_ID'],
+  client_secret: ENV['LINKEDIN_CLIENT_SECRET'],
   scope: 'openid profile email'
 ```
 
@@ -51,7 +55,9 @@ When specifying which permissions you want users to grant to your application, y
 Here is an example of how you can configure the `fields` option:
 
 ```ruby
-provider :linkedin, ENV['LINKEDIN_CLIENT_ID'], ENV['LINKEDIN_CLIENT_SECRET'],
+provider :linkedin,
+  client_id: ENV['LINKEDIN_CLIENT_ID'],
+  client_secret: ENV['LINKEDIN_CLIENT_SECRET'],
   fields: %w(id full-name email-address)
 ```
 
