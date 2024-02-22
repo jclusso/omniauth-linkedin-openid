@@ -76,12 +76,6 @@ module OmniAuth
       def profile_endpoint
         '/v2/userinfo'
       end
-
-      def token_params
-        super.tap do |params|
-          params.client_secret = options.client_secret
-        end
-      end
     end
   end
 end
