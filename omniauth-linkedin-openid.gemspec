@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
     "source_code_uri" => "https://github.com/jclusso/omniauth-linkedin-openid"
   }
 
+  gem.add_dependency 'oauth2', '~> 2.0'
   gem.add_dependency 'omniauth', '~> 2.0'
   gem.add_dependency 'omniauth-oauth2', '~> 1.8'
   gem.add_development_dependency 'rspec', '~> 3.5'
