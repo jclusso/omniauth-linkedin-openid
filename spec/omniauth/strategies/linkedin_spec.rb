@@ -20,6 +20,10 @@ describe OmniAuth::Strategies::LinkedIn do
     it 'has correct `token_url`' do
       expect(subject.client.options[:token_url]).to eq('https://www.linkedin.com/oauth/v2/accessToken')
     end
+
+    it 'has a correct `token_method`' do
+      expect(subject.client.options[:token_method]).to eq(:post_with_query_string)
+    end
   end
 
   describe '#callback_path' do
