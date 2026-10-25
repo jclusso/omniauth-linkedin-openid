@@ -44,6 +44,10 @@ provider :linkedin,
   scope: 'openid profile email'
 ```
 
+## Email Verification
+
+LinkedIn returns the member's primary email with a separate, optional `email_verified` flag. `info.email` is only set when LinkedIn reports the email as verified, so it is safe to use for finding or linking accounts. The email as LinkedIn returned it is always available in `info.unverified_email`, and the flag in `info.email_verified`.
+
 ## Profile Fields
 
 When specifying which permissions you want users to grant to your application, you can also specify the array of fields that you want returned in the OmniAuth hash. The following fields are requested by default:

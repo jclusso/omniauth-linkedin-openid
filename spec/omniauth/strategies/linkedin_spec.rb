@@ -68,6 +68,44 @@ describe OmniAuth::Strategies::LinkedIn do
     end
   end
 
+  describe '#info email' do
+    let(:email) { 'member@example.com' }
+
+    before :each do
+      allow(subject).to receive(:raw_info) { raw_info }
+    end
+
+    context 'when the email is verified' do
+      let(:raw_info) { Hash['email' => email, 'email_verified' => true] }
+
+      it 'returns the email' do
+        expect(subject.info[:email]).to eq(email)
+        expect(subject.info[:unverified_email]).to eq(email)
+        expect(subject.info[:email_verified]).to eq(true)
+      end
+    end
+
+    context 'when the email is not verified' do
+      let(:raw_info) { Hash['email' => email, 'email_verified' => false] }
+
+      it 'only returns the email as unverified_email' do
+        expect(subject.info[:email]).to be_nil
+        expect(subject.info[:unverified_email]).to eq(email)
+        expect(subject.info[:email_verified]).to eq(false)
+      end
+    end
+
+    context 'when email_verified is missing' do
+      let(:raw_info) { Hash['email' => email] }
+
+      it 'only returns the email as unverified_email' do
+        expect(subject.info[:email]).to be_nil
+        expect(subject.info[:unverified_email]).to eq(email)
+        expect(subject.info[:email_verified]).to be_nil
+      end
+    end
+  end
+
   describe '#extra' do
     let(:raw_info) { Hash[:foo => 'bar'] }
 
