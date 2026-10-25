@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
   gem.name          = 'omniauth-linkedin-openid'
   gem.require_paths = ['lib']
   gem.version       = OmniAuth::LinkedInOpenID::VERSION
+  gem.required_ruby_version = '>= 3.2'
 
   gem.metadata = {
     "bug_tracker_uri" => "https://github.com/jclusso/omniauth-linkedin-openid/issues",
