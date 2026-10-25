@@ -24,7 +24,9 @@ module OmniAuth
 
       info do
         {
-          email: raw_info['email'],
+          email: verified_email,
+          unverified_email: raw_info['email'],
+          email_verified: raw_info['email_verified'],
           first_name: raw_info['given_name'],
           last_name: raw_info['family_name'],
           picture_url: raw_info['picture']
@@ -56,6 +58,10 @@ module OmniAuth
       end
 
       private
+
+      def verified_email
+        raw_info['email_verified'] == true ? raw_info['email'] : nil
+      end
 
       def fields_mapping
         # https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin-v2?context=linkedin%2Fconsumer%2Fcontext#api-request-to-retreive-member-details
