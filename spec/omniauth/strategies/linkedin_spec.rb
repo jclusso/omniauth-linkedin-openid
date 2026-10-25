@@ -100,6 +100,8 @@ describe OmniAuth::Strategies::LinkedIn do
     describe 'scope' do
       before :each do
         allow(subject).to receive(:session).and_return({})
+        allow(subject).to receive(:callback_url)
+          .and_return('https://example.com/auth/linkedin/callback')
       end
 
       it 'sets default scope' do
